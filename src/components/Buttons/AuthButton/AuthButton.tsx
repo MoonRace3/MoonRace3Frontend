@@ -31,10 +31,10 @@ export const AuthButton: FC = () => {
       <Button
         className="hidden md:block"
         color="primary"
-        variant="ghost"
+        variant={isConnected ? 'flat' : 'ghost'}
         onClick={() => setIsOpen(true)}
       >
-        {isConnected ? 'Continue login' : 'Login'}
+        {isConnected ? 'Continue Login' : 'Login'}
       </Button>
       <AuthModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
