@@ -9,10 +9,12 @@ import { setAuthToken } from '@/services/api/api'
 import { getMe } from '@/services/api/user'
 import { useAppDispatch } from '@/redux/hooks'
 import { setIsFullAuth, setIsLoading } from '@/redux/features/authSlice'
+import { useRouter } from 'next/navigation'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const { address, isConnecting, isConnected } = useAccount()
   const dispatch = useAppDispatch()
+  const router = useRouter()
 
   const { data, isError } = useQuery({
     queryKey: [cacheKeys.auth, isConnecting, isConnected, address],
@@ -22,6 +24,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (isConnecting || !isConnected || !lsToken) {
         dispatch(setIsLoading(false))
         window.localStorage.removeItem(localStorageKeys.token)
+        router.push('/')
         throw new Error('Not connected')
       }
 
@@ -36,6 +39,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       } catch (e) {
         dispatch(setIsFullAuth(false))
         dispatch(setIsLoading(false))
+        router.push('/')
         throw new Error('Not connected')
       }
     },

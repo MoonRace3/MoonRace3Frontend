@@ -19,7 +19,7 @@ export function Providers({ children }: { children: ReactNode }) {
 
   return (
     <NextUIProvider>
-      <main className="text-foreground bg-background">
+      <main className="light text-foreground bg-background">
         <ReduxProvider store={store}>
           <QueryClientProvider client={queryClient}>
             <SnackbarProvider

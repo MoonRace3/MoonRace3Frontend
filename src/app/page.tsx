@@ -1,5 +1,5 @@
 import Header from '@/components/Header/Header'
-import { TopBlock } from '@/app/main/TopBlock'
+import { TopBlock } from '@/app/components/TopBlock'
 
 export default function Home() {
   return (

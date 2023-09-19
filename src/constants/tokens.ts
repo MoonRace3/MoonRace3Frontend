@@ -1,6 +1,8 @@
 export enum Tokens {
-  ETH = 'Ethereum',
-  DAI = 'DAI',
-  USDC = 'USDC',
+  BTC = 'BTC',
+  ETH = 'ETH',
+  MATIC = 'MATIC',
+  DOGE = 'DOGE',
+  XRP = 'XRP',
   USDT = 'USDT',
 }
